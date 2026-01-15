@@ -1,0 +1,62 @@
+{
+  "expo": {
+    "name": "OhOh! Incident Reporting App",
+    "slug": "ohoh-incident-reporter",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ohohsafety.incidentreporter",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs camera access to photograph incident evidence.",
+        "NSPhotoLibraryUsageDescription": "This app needs photo library access to attach incident evidence.",
+        "NSLocationWhenInUseUsageDescription": "This app needs location access to record incident locations."
+      }
+    },
+    "android": {
+      "package": "com.ohohsafety.incidentreporter",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow OhOh! Incident Reporter to use your location to record incident locations."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow OhOh! Incident Reporter to access your camera to photograph incident evidence."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow OhOh! Incident Reporter to access your photos to attach incident evidence."
+        }
+      ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "your-project-id-here"
+      },
+      "backendUrl": "http://localhost:3000"
+    },
+    "scheme": "ohoh-incident-reporter"
+  }
+}

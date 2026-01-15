@@ -1,0 +1,11 @@
+{
+  "name": "ohoh-incident-reporter",
+  "version": "1.0.0",
+  "description": "OhOh! Safety Business Suite - Incident Investigation & Reporting",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "build:shared": "cd shared && npm run build"
+  }
+}

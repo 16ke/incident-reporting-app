@@ -1,0 +1,37 @@
+{
+  "name": "@ohoh-incident-reporter/backend",
+  "version": "1.0.0",
+  "description": "Next.js 15 Backend with TypeScript",
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.1",
+    "aws-sdk": "^2.1520.0",
+    "iconv-lite": "^0.7.2",
+    "next": "^15.0.3",
+    "next-auth": "^4.24.5",
+    "pdfkit": "^0.14.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "socket.io": "^4.6.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/pdfkit": "^0.13.4",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^15.0.3",
+    "prisma": "^5.7.1",
+    "typescript": "^5.3.3"
+  }
+}

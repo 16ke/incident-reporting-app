@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Incident {
+  id                String   @id @default(cuid())
+  referenceCode     String   @unique
+  category          String
+  
+  dateOfIncident    DateTime
+  timeOfIncident    String
+  
+  // JSON fields for flexible data storage
+  location          Json
+  reportedBy        Json
+  peoplePresent     Json?
+  witnesses         Json?
+  personInvolved    Json?
+  
+  // Category-specific details
+  injuryDetails           Json?
+  propertyDamageDetails   Json?
+  vehicleDetails          Json?
+  publicLiabilityDetails  Json?
+  
+  // Investigation
+  incidentDescription Json
+  rootCauseAnalysis   Json?
+  correctiveActions   Json?
+  
+  // Media
+  attachments Json?
+  signatures  Json?
+  
+  // Legal
+  riddorAssessment Json?
+  legalNotes       String?
+  internalComments String?
+  
+  // Metadata
+  reportStatus String @default("draft")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  @@index([referenceCode])
+  @@index([category])
+  @@index([dateOfIncident])
+  @@index([reportStatus])
+}
+
+model PersonalInfo {
+  id          String   @id @default(cuid())
+  userId      String?  @unique
+  fullName    String
+  jobTitle    String?
+  department  String?
+  employer    String?
+  industry    String?
+  phoneNumber String?
+  email       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model AppSettings {
+  id                    String   @id @default(cuid())
+  userId                String?  @unique
+  theme                 String   @default("system")
+  locationEnabled       Boolean  @default(true)
+  autoFillPersonalInfo  Boolean  @default(true)
+  defaultPdfExportType  String   @default("full")
+  language              String   @default("en-GB")
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
